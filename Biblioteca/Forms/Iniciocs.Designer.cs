@@ -218,9 +218,11 @@ namespace Biblioteca.Forms
             // cbEmprestimo
             // 
             resources.ApplyResources(cbEmprestimo, "cbEmprestimo");
+            cbEmprestimo.BackColor = SystemColors.ScrollBar;
             cbEmprestimo.FormattingEnabled = true;
             cbEmprestimo.Items.AddRange(new object[] { resources.GetString("cbEmprestimo.Items"), resources.GetString("cbEmprestimo.Items1"), resources.GetString("cbEmprestimo.Items2") });
             cbEmprestimo.Name = "cbEmprestimo";
+            cbEmprestimo.SelectedIndexChanged += cbEmprestimo_SelectedIndexChanged;
             // 
             // Iniciocs
             // 

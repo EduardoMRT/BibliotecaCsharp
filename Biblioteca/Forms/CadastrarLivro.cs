@@ -62,10 +62,11 @@ namespace Biblioteca.Forms
 
                 using (MySqlConnection conn = Databasecs.Conn())
                 {
-                    string sql = "INSERT INTO livros(nome, autor) VALUES(@nome, @autor)";
+                    string sql = "INSERT INTO livros(nome, autor, situacao) VALUES(@nome, @autor, @situacao)";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@nome", nomeLivro);
                     cmd.Parameters.AddWithValue("@autor", autor);
+                    cmd.Parameters.AddWithValue("@situacao", "DISPONIVEL");
                     if (cmd.ExecuteNonQuery() >= 1)
                     {
                         MessageBox.Show("Livro cadastrado com sucesso!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);

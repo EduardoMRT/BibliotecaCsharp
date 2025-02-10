@@ -189,5 +189,20 @@ namespace Biblioteca.Forms
             thread.Start();
             this.Close();
         }
+
+        private void cbEmprestimo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbEmprestimo.SelectedIndex == 0)
+            {
+                Thread thread = new Thread(() => Application.Run(new EmprestarLivro()));
+                thread.Start();
+                this.Close();
+            }
+
+            if(cbEmprestimo.SelectedIndex == 2)
+            {
+                MessageBox.Show("Ai sim campeao");
+            }
+        }
     }
 }

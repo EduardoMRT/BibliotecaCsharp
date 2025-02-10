@@ -89,7 +89,7 @@ namespace Biblioteca.Forms
                         livro.idUsuario = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
                         livro.situacao = reader.IsDBNull(4) ? "" : reader.GetString(4);
                         livro.data_Emprestimo = reader.IsDBNull(5) ? new DateTime() : reader.GetDateTime(5);
-                        livro.data_Devolucao = reader.IsDBNull(5) ? new DateTime() : reader.GetDateTime(6);
+                        livro.data_Devolucao = reader.IsDBNull(6) ? new DateTime() : reader.GetDateTime(6);
                         livros.Add(livro);
                     }
                     return livros;

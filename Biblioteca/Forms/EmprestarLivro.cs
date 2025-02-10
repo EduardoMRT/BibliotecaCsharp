@@ -222,8 +222,6 @@ namespace Biblioteca.Forms
 
         private Livro? retornaLivroPorNome()
         {
-            MessageBox.Show(cbLivro.Text);
-
             foreach (Livro livro in livros)
             {
                 if (!livro.situacao.Equals("EMPRESTADO") && livro.nome.Equals(cbLivro.Text))
@@ -241,12 +239,12 @@ namespace Biblioteca.Forms
                 using (MySqlConnection conn = Databasecs.Conn())
                 {
 
-                    string sql = "UPDATE livros SET data_Emprestimo = @data_Emprestimo, data_Devolucao = @data_Devolucao, situacao = @situacao WHERE id = @id AND situacao != 'EMPRESTADO'";
+                    string sql = "UPDATE livros SET data_Emprestimo = @data_Emprestimo, data_Devolucao = @data_Devolucao, situacao = @situacao, idUsuario = @idUsuario WHERE id = @id AND situacao != 'EMPRESTADO'";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@data_Emprestimo", DateTime.Parse(txtDataEmprestimo.Text));
                     cmd.Parameters.AddWithValue("@data_Devolucao", DateTime.Parse(txtDataDevolucao.Text));
                     cmd.Parameters.AddWithValue("@situacao", "EMPRESTADO");
-                    
+
                     var livro = retornaLivroPorNome();
                     if (livro == null || livro.id == 0)
                     {
@@ -256,7 +254,7 @@ namespace Biblioteca.Forms
                     cmd.Parameters.AddWithValue("@id", livro.id);
 
                     var pessoa = retornaPessoaPorCPF(txtCPF.Text);
-                    if(pessoa == null || pessoa.Id == 0)
+                    if (pessoa == null || pessoa.Id == 0)
                     {
                         MessageBox.Show("Livro não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -279,7 +277,17 @@ namespace Biblioteca.Forms
                 MessageBox.Show($"Erro: {ex}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            
+
+        }
+
+        private void EmprestarLivro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbLivro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

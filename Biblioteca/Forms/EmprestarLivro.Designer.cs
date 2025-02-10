@@ -44,6 +44,9 @@
             lblDataDevolucao = new Label();
             txtDataDevolucao = new MaskedTextBox();
             btnCadastrar = new Button();
+            panel1 = new Panel();
+            label1 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblSbiblio
@@ -59,7 +62,7 @@
             // txtCPF
             // 
             txtCPF.Font = new Font("Segoe UI", 12F);
-            txtCPF.Location = new Point(79, 77);
+            txtCPF.Location = new Point(72, 19);
             txtCPF.Name = "txtCPF";
             txtCPF.Size = new Size(166, 29);
             txtCPF.TabIndex = 3;
@@ -69,7 +72,7 @@
             // 
             lblCPF.AutoSize = true;
             lblCPF.Font = new Font("Segoe UI", 12F);
-            lblCPF.Location = new Point(35, 80);
+            lblCPF.Location = new Point(28, 22);
             lblCPF.Name = "lblCPF";
             lblCPF.Size = new Size(40, 21);
             lblCPF.TabIndex = 4;
@@ -78,7 +81,7 @@
             // btnPesquisar
             // 
             btnPesquisar.Font = new Font("Segoe UI", 12F);
-            btnPesquisar.Location = new Point(251, 77);
+            btnPesquisar.Location = new Point(244, 19);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(119, 29);
             btnPesquisar.TabIndex = 5;
@@ -96,7 +99,7 @@
             txtNome.CausesValidation = false;
             txtNome.Enabled = false;
             txtNome.Font = new Font("Segoe UI", 12F);
-            txtNome.Location = new Point(101, 112);
+            txtNome.Location = new Point(94, 54);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(350, 29);
             txtNome.TabIndex = 7;
@@ -107,7 +110,7 @@
             lblNome.AutoSize = true;
             lblNome.CausesValidation = false;
             lblNome.Font = new Font("Segoe UI", 12F);
-            lblNome.Location = new Point(35, 115);
+            lblNome.Location = new Point(28, 57);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(56, 21);
             lblNome.TabIndex = 8;
@@ -129,7 +132,7 @@
             // 
             lblLivro.AutoSize = true;
             lblLivro.Font = new Font("Segoe UI", 12F);
-            lblLivro.Location = new Point(35, 150);
+            lblLivro.Location = new Point(28, 92);
             lblLivro.Name = "lblLivro";
             lblLivro.Size = new Size(48, 21);
             lblLivro.TabIndex = 11;
@@ -139,17 +142,18 @@
             // 
             cbLivro.Font = new Font("Segoe UI", 12F);
             cbLivro.FormattingEnabled = true;
-            cbLivro.Location = new Point(101, 147);
+            cbLivro.Location = new Point(94, 89);
             cbLivro.Name = "cbLivro";
             cbLivro.Size = new Size(350, 29);
             cbLivro.TabIndex = 12;
+            cbLivro.SelectedIndexChanged += cbLivro_SelectedIndexChanged;
             cbLivro.KeyPress += cbLivro_KeyPress;
             cbLivro.KeyUp += cbLivro_KeyUp;
             // 
             // txtDataEmprestimo
             // 
             txtDataEmprestimo.Font = new Font("Segoe UI", 12F);
-            txtDataEmprestimo.Location = new Point(35, 209);
+            txtDataEmprestimo.Location = new Point(28, 151);
             txtDataEmprestimo.Name = "txtDataEmprestimo";
             txtDataEmprestimo.Size = new Size(133, 29);
             txtDataEmprestimo.TabIndex = 13;
@@ -160,7 +164,7 @@
             // 
             lblDataEmprestimo.AutoSize = true;
             lblDataEmprestimo.Font = new Font("Segoe UI", 12F);
-            lblDataEmprestimo.Location = new Point(35, 185);
+            lblDataEmprestimo.Location = new Point(28, 127);
             lblDataEmprestimo.Name = "lblDataEmprestimo";
             lblDataEmprestimo.Size = new Size(130, 21);
             lblDataEmprestimo.TabIndex = 14;
@@ -170,7 +174,7 @@
             // 
             lblDataDevolucao.AutoSize = true;
             lblDataDevolucao.Font = new Font("Segoe UI", 12F);
-            lblDataDevolucao.Location = new Point(229, 185);
+            lblDataDevolucao.Location = new Point(222, 127);
             lblDataDevolucao.Name = "lblDataDevolucao";
             lblDataDevolucao.Size = new Size(119, 21);
             lblDataDevolucao.TabIndex = 15;
@@ -179,7 +183,7 @@
             // txtDataDevolucao
             // 
             txtDataDevolucao.Font = new Font("Segoe UI", 12F);
-            txtDataDevolucao.Location = new Point(229, 209);
+            txtDataDevolucao.Location = new Point(222, 151);
             txtDataDevolucao.Name = "txtDataDevolucao";
             txtDataDevolucao.Size = new Size(119, 29);
             txtDataDevolucao.TabIndex = 16;
@@ -196,27 +200,50 @@
             btnCadastrar.UseVisualStyleBackColor = true;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtCPF);
+            panel1.Controls.Add(lblCPF);
+            panel1.Controls.Add(btnPesquisar);
+            panel1.Controls.Add(txtDataDevolucao);
+            panel1.Controls.Add(txtNome);
+            panel1.Controls.Add(lblDataDevolucao);
+            panel1.Controls.Add(lblNome);
+            panel1.Controls.Add(lblDataEmprestimo);
+            panel1.Controls.Add(lblLivro);
+            panel1.Controls.Add(txtDataEmprestimo);
+            panel1.Controls.Add(cbLivro);
+            panel1.Location = new Point(41, 86);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(489, 219);
+            panel1.TabIndex = 18;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14F);
+            label1.Location = new Point(41, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(221, 25);
+            label1.TabIndex = 19;
+            label1.Text = "EMPRÉSTIMO DE LIVROS";
+            // 
             // EmprestarLivro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(panel1);
             Controls.Add(btnCadastrar);
-            Controls.Add(txtDataDevolucao);
-            Controls.Add(lblDataDevolucao);
-            Controls.Add(lblDataEmprestimo);
-            Controls.Add(txtDataEmprestimo);
-            Controls.Add(cbLivro);
-            Controls.Add(lblLivro);
             Controls.Add(btnVoltar);
-            Controls.Add(lblNome);
-            Controls.Add(txtNome);
-            Controls.Add(btnPesquisar);
-            Controls.Add(lblCPF);
-            Controls.Add(txtCPF);
             Controls.Add(lblSbiblio);
             Name = "EmprestarLivro";
             Text = "EmprestarLivro";
+            Load += EmprestarLivro_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -238,5 +265,7 @@
         private Label lblDataDevolucao;
         private MaskedTextBox txtDataDevolucao;
         private Button btnCadastrar;
+        private Panel panel1;
+        private Label label1;
     }
 }

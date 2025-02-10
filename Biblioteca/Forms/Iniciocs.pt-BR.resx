@@ -283,6 +283,12 @@
   <data name="cbEmprestimo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14pt</value>
   </data>
+  <data name="cbEmprestimo.Items1" xml:space="preserve">
+    <value>Devolver Livro</value>
+  </data>
+  <data name="cbEmprestimo.Items2" xml:space="preserve">
+    <value>Renovar Livro</value>
+  </data>
   <data name="cbEmprestimo.Location" type="System.Drawing.Point, System.Drawing">
     <value>694, 44</value>
   </data>

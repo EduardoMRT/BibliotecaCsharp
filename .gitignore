@@ -1,0 +1,48 @@
+# Visual Studio-specific
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.cache
+
+# Build and output directories
+bin/
+obj/
+
+# Windows-specific files
+Thumbs.db
+Desktop.ini
+
+# .NET-specific
+project.lock.json
+project.assets.json
+artifacts/
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Rider IDE (JetBrains)
+.idea/
+*.sln.iml
+
+# User-specific files
+*.psess
+*.pdb
+
+# Debugging
+*.log
+*.tlog
+
+# Publish outputs
+publish/
+app.publish/
+
+# Temporary files
+*.tmp
+*.bak
+~$*
+
+# Resharper
+*.DotSettings.user

@@ -24,12 +24,9 @@ namespace Biblioteca.DatabaseConfig
 
         public static MySqlConnection Conn()
         {
-
-
-
-            string conexao = "Server=localhost; Database=biblio; Uid=root; Pwd="+ getSenhaBD() + ";";
             try
             {
+                string conexao = "Server=localhost; Database=biblio; Uid=root; Pwd=" + getSenhaBD() + ";";
                 MySqlConnection conn = new MySqlConnection(conexao);
                 conn.Open();
                 return conn;

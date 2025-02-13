@@ -1,11 +1,7 @@
 ﻿using Biblioteca.DatabaseConfig;
 using Biblioteca.domain;
-using iText.Kernel.Pdf;
-using iText.Layout.Element;
 using MySql.Data.MySqlClient;
-using iText.Layout;
 using System.Data;
-using iText.Layout.Properties;
 
 
 namespace Biblioteca.Forms

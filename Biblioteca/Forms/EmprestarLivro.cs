@@ -21,12 +21,20 @@ namespace Biblioteca.Forms
         {
             InitializeComponent();
             mascara();
+            resetarLivros();
+            txtDataEmprestimo.Text = dataHoje.ToString();
+            txtDataDevolucao.Text = dataHoje.AddDays(7).ToString();
+        }
+
+        public void resetarLivros()
+        {
+            livros.Clear();
+            livrosNome.Clear();
             livros = retornaLivros();
             livrosNome = nomeLivro();
             cbLivro.Items.Clear();
             cbLivro.Items.AddRange(livrosNome.ToArray());
-            txtDataEmprestimo.Text = dataHoje.ToString();
-            txtDataDevolucao.Text = dataHoje.AddDays(7).ToString();
+            cbLivro.Text = "";
         }
 
         public void mascara()
@@ -232,10 +240,41 @@ namespace Biblioteca.Forms
             return null;
         }
 
+        private void validadores()
+        {
+            try
+            {
+                DateTime dataEmprestimo = DateTime.Parse(txtDataEmprestimo.Text);
+                DateTime dataDevolucao = DateTime.Parse(txtDataDevolucao.Text);
+                txtDataDevolucao.Text = dataEmprestimo.AddDays(7).ToString("dd/MM/yyyy");
+              
+                if (dataDevolucao <= dataEmprestimo)
+                {
+                    throw new Exception("A data de devolução não pode ser igual ou anterior ao dia de empréstimo");
+                }
+
+
+                if (txtCPF.Text.Length <= 13)
+                {
+                    throw new Exception("Você deve informar um CPF!");
+                }
+
+                if (string.IsNullOrEmpty(txtNome.Text))
+                {
+                    throw new Exception("Você deve clicar em pesquisar após colocar o CPF.");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
+                validadores();
                 using (MySqlConnection conn = Databasecs.Conn())
                 {
 
@@ -264,6 +303,7 @@ namespace Biblioteca.Forms
                     if (cmd.ExecuteNonQuery() >= 1)
                     {
                         MessageBox.Show("Empréstimo realizado com sucesso!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        resetarLivros();
                     }
                     else
                     {
@@ -274,7 +314,7 @@ namespace Biblioteca.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro: {ex}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -286,6 +326,11 @@ namespace Biblioteca.Forms
         }
 
         private void cbLivro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDataEmprestimo_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

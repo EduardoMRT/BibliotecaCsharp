@@ -44,7 +44,6 @@ namespace Biblioteca.Forms
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
-            btnImprimir = new Button();
             dGVLivros = new DataGridView();
             panel1 = new Panel();
             btnCadastrarPessoa = new Button();
@@ -147,18 +146,10 @@ namespace Biblioteca.Forms
             // tabPage2
             // 
             resources.ApplyResources(tabPage2, "tabPage2");
-            tabPage2.Controls.Add(btnImprimir);
             tabPage2.Controls.Add(dGVLivros);
             tabPage2.Name = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             tabPage2.Click += tabPage2_Click;
-            // 
-            // btnImprimir
-            // 
-            resources.ApplyResources(btnImprimir, "btnImprimir");
-            btnImprimir.Name = "btnImprimir";
-            btnImprimir.UseVisualStyleBackColor = true;
-            btnImprimir.Click += btnImprimir_Click;
             // 
             // dGVLivros
             // 
@@ -220,7 +211,7 @@ namespace Biblioteca.Forms
             resources.ApplyResources(cbEmprestimo, "cbEmprestimo");
             cbEmprestimo.BackColor = SystemColors.ScrollBar;
             cbEmprestimo.FormattingEnabled = true;
-            cbEmprestimo.Items.AddRange(new object[] { resources.GetString("cbEmprestimo.Items"), resources.GetString("cbEmprestimo.Items1"), resources.GetString("cbEmprestimo.Items2") });
+            cbEmprestimo.Items.AddRange(new object[] { resources.GetString("cbEmprestimo.Items"), resources.GetString("cbEmprestimo.Items1") });
             cbEmprestimo.Name = "cbEmprestimo";
             cbEmprestimo.SelectedIndexChanged += cbEmprestimo_SelectedIndexChanged;
             // 
@@ -262,7 +253,6 @@ namespace Biblioteca.Forms
         private Label label1;
         private Button btnPesquisa;
         private DataGridView dGVLivros;
-        private Button btnImprimir;
         private Panel panel1;
         private Button btnCadastrarLivro;
         private Button btnConsultaAutor;

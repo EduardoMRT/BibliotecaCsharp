@@ -170,30 +170,11 @@
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
     <value>671, 246</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnImprimir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnImprimir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 0</value>
-  </data>
-  <data name="btnImprimir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="btnImprimir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="btnImprimir.Text" xml:space="preserve">
-    <value>IMPRIMIR</value>
-  </data>
-  <data name="dGVLivros.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 21</value>
-  </data>
   <data name="dGVLivros.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="dGVLivros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>672, 228</value>
+    <value>672, 249</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
@@ -222,6 +203,7 @@
   <data name="btnCadastrarPessoa.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnCadastrarPessoa.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -272,7 +254,7 @@
     <value>15</value>
   </data>
   <data name="lbAutores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>900, 103</value>
+    <value>922, 99</value>
   </data>
   <data name="lbAutores.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 274</value>
@@ -284,16 +266,13 @@
     <value>Segoe UI, 14pt</value>
   </data>
   <data name="cbEmprestimo.Items1" xml:space="preserve">
-    <value>Devolver Livro</value>
-  </data>
-  <data name="cbEmprestimo.Items2" xml:space="preserve">
-    <value>Renovar Livro</value>
+    <value>Devolver/Renovar Livro</value>
   </data>
   <data name="cbEmprestimo.Location" type="System.Drawing.Point, System.Drawing">
     <value>694, 44</value>
   </data>
   <data name="cbEmprestimo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 33</value>
+    <value>225, 33</value>
   </data>
   <data name="cbEmprestimo.Text" xml:space="preserve">
     <value>EMPRÉSTIMO</value>

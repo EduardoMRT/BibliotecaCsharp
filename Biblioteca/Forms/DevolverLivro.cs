@@ -100,7 +100,7 @@ namespace Biblioteca.Forms
         {
             foreach (Livro livro in livros)
             {
-                
+
                 if (livro.nome.Equals(cbLivro.Text))
                 {
                     return livro;
@@ -120,7 +120,7 @@ namespace Biblioteca.Forms
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@data_Emprestimo", DBNull.Value);
                     cmd.Parameters.AddWithValue("@data_Devolucao", DBNull.Value);
-                    
+
                     var livro = retornaLivroPorNome();
 
                     cmd.Parameters.AddWithValue("@id", livro.id);
@@ -137,6 +137,7 @@ namespace Biblioteca.Forms
                     if (cmd.ExecuteNonQuery() >= 1)
                     {
                         MessageBox.Show("Devolução realizada com sucesso!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        resetaLivros();
                     }
                     else
                     {
@@ -193,17 +194,22 @@ namespace Biblioteca.Forms
             this.Close();
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)
+        private void resetaLivros()
         {
             livros.Clear();
             livros = retornaLivrosEmprestados();
-            livrosNome.Clear(); 
+            livrosNome.Clear();
             livrosNome = nomeLivro();
             cbLivro.Items.Clear();
             cbLivro.Items.AddRange(livrosNome.ToArray());
+            cbLivro.Text = "";
+        }
 
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
             try
             {
+                resetaLivros();
                 Pessoa pessoa = pesquisaPessoa().FirstOrDefault();
                 if (pessoa == null)
                 {
@@ -219,6 +225,40 @@ namespace Biblioteca.Forms
             }
 
 
+        }
+
+        private void btnRenovar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (MySqlConnection conn = Databasecs.Conn())
+                {
+                    string dataDevolucaoStr = DateTime.Now.AddDays(7).ToString("dd/MM/yyyy"); //Para evitar passar a hora
+
+                    string sql = "UPDATE livros SET data_Devolucao = @data_Devolucao WHERE id = @id AND situacao = 'EMPRESTADO'";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@data_Devolucao", DateTime.Parse(dataDevolucaoStr));
+
+                    Livro? livro = retornaLivroPorNome();
+                    int? id = livro != null ? livro.id : null;
+
+                    cmd.Parameters.AddWithValue("@id", id.HasValue ? id.Value : 0);
+
+                    if (cmd.ExecuteNonQuery() >= 1)
+                    {
+                        MessageBox.Show($"Renovação realizada com sucesso! \n Nova data de devolução: {dataDevolucaoStr}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        throw new Exception("Falha desconhecida ao tentar devolver o livro, entre em contato com o suporte!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
     }
 

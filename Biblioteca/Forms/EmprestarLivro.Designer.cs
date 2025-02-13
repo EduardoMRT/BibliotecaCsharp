@@ -158,6 +158,7 @@
             txtDataEmprestimo.Size = new Size(133, 29);
             txtDataEmprestimo.TabIndex = 13;
             txtDataEmprestimo.TextAlign = HorizontalAlignment.Center;
+            txtDataEmprestimo.MaskInputRejected += txtDataEmprestimo_MaskInputRejected;
             txtDataEmprestimo.KeyUp += txtDataEmprestimo_KeyUp;
             // 
             // lblDataEmprestimo
@@ -196,7 +197,7 @@
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(112, 33);
             btnCadastrar.TabIndex = 17;
-            btnCadastrar.Text = "CADASTRAR";
+            btnCadastrar.Text = "EMPRESTAR";
             btnCadastrar.UseVisualStyleBackColor = true;
             btnCadastrar.Click += btnCadastrar_Click;
             // 

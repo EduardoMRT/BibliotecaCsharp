@@ -31,6 +31,7 @@
             lblSbiblio = new Label();
             label1 = new Label();
             panel1 = new Panel();
+            btnRenovar = new Button();
             btnCadastrar = new Button();
             txtCPF = new MaskedTextBox();
             btnVoltar = new Button();
@@ -59,13 +60,14 @@
             label1.Font = new Font("Segoe UI", 14F);
             label1.Location = new Point(29, 55);
             label1.Name = "label1";
-            label1.Size = new Size(215, 25);
+            label1.Size = new Size(342, 25);
             label1.TabIndex = 21;
-            label1.Text = "DEVOLUÇÃO DE LIVROS";
+            label1.Text = "DEVOLUÇÃO / RENOVAÇÃO DE LIVROS";
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnRenovar);
             panel1.Controls.Add(btnCadastrar);
             panel1.Controls.Add(txtCPF);
             panel1.Controls.Add(btnVoltar);
@@ -80,10 +82,21 @@
             panel1.Size = new Size(489, 219);
             panel1.TabIndex = 20;
             // 
+            // btnRenovar
+            // 
+            btnRenovar.Font = new Font("Segoe UI", 12F);
+            btnRenovar.Location = new Point(372, 181);
+            btnRenovar.Name = "btnRenovar";
+            btnRenovar.Size = new Size(112, 33);
+            btnRenovar.TabIndex = 24;
+            btnRenovar.Text = "RENOVAR";
+            btnRenovar.UseVisualStyleBackColor = true;
+            btnRenovar.Click += btnRenovar_Click;
+            // 
             // btnCadastrar
             // 
             btnCadastrar.Font = new Font("Segoe UI", 12F);
-            btnCadastrar.Location = new Point(370, 181);
+            btnCadastrar.Location = new Point(254, 181);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(112, 33);
             btnCadastrar.TabIndex = 23;
@@ -103,13 +116,13 @@
             // btnVoltar
             // 
             btnVoltar.Font = new Font("Segoe UI", 12F);
-            btnVoltar.Location = new Point(244, 181);
+            btnVoltar.Location = new Point(136, 181);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(112, 33);
             btnVoltar.TabIndex = 22;
             btnVoltar.Text = "VOLTAR";
             btnVoltar.UseVisualStyleBackColor = true;
-            btnVoltar.Click += this.btnVoltar_Click;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // lblCPF
             // 
@@ -183,7 +196,7 @@
             Controls.Add(panel1);
             Controls.Add(lblSbiblio);
             Name = "DevolverLivro";
-            Text = "RenovarLivro";
+            Text = "Devolução e Renovação de Livros";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -204,5 +217,6 @@
         private ComboBox cbLivro;
         private Button btnCadastrar;
         private Button btnVoltar;
+        private Button btnRenovar;
     }
 }

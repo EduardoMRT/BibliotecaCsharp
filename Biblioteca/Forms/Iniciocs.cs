@@ -199,17 +199,22 @@ namespace Biblioteca.Forms
                 this.Close();
             }
 
-            if(cbEmprestimo.SelectedIndex == 1)
+            if (cbEmprestimo.SelectedIndex == 1)
             {
                 Thread thread = new Thread(() => Application.Run(new DevolverLivro()));
                 thread.Start();
                 this.Close();
             }
 
-            if(cbEmprestimo.SelectedIndex == 2)
+            if (cbEmprestimo.SelectedIndex == 2)
             {
                 MessageBox.Show("Ai sim campeao");
             }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

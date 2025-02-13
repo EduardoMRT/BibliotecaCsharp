@@ -52,6 +52,7 @@ namespace Biblioteca.Forms
             btnCadastrarLivro = new Button();
             lbAutores = new ListBox();
             cbEmprestimo = new ComboBox();
+            btnSair = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dGVLivrosEmprestimosAtuais).BeginInit();
@@ -215,10 +216,18 @@ namespace Biblioteca.Forms
             cbEmprestimo.Name = "cbEmprestimo";
             cbEmprestimo.SelectedIndexChanged += cbEmprestimo_SelectedIndexChanged;
             // 
+            // btnSair
+            // 
+            resources.ApplyResources(btnSair, "btnSair");
+            btnSair.Name = "btnSair";
+            btnSair.UseVisualStyleBackColor = true;
+            btnSair.Click += btnSair_Click;
+            // 
             // Iniciocs
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnSair);
             Controls.Add(cbEmprestimo);
             Controls.Add(lbAutores);
             Controls.Add(panel1);
@@ -260,5 +269,6 @@ namespace Biblioteca.Forms
         private ListBox lbAutores;
         private Button btnCadastrarPessoa;
         private ComboBox cbEmprestimo;
+        private Button btnSair;
     }
 }
